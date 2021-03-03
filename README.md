@@ -1,5 +1,7 @@
 # Hosted link
 
+[Exercise](https://gallant-minsky-56efee.netlify.app/)
+
 # Running Locally
 
 1.  Run `npm install`

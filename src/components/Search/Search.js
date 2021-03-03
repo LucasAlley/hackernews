@@ -14,7 +14,7 @@ function Search({ setResults, addToHistory }) {
     //add the query to our search history
     addToHistory(query);
 
-    fetch(`http://hn.algolia.com/api/v1/search?query=${encodeURI(query)}`)
+    fetch(`https://hn.algolia.com/api/v1/search?query=${encodeURI(query)}`)
       .then((r) => r.json())
       .then((d) => {
         setResults(d.hits);
