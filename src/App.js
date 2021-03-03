@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Provider } from "react-redux";
+import "./App.css";
+import RecentlySearched from "./components/RecentlySearched/RecentlySearched";
+import Results from "./components/Results/Results";
+import Search from "./components/Search/Search";
+import store from "./store";
 
 function App() {
+  const [results, setResults] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 w-9/12 mx-auto pt-12">
+        <RecentlySearched />
+        <div className="w-full flex flex-col space-y-6">
+          <Search setResults={setResults} />
+          <Results results={results} />
+        </div>
+      </div>
+    </Provider>
   );
 }
 
